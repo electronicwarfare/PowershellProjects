@@ -12,3 +12,7 @@
 ### OSIsoft PI - Retrieve Digital Tag Data
 #### The archive server, tag name, start and end dates, and output folder are entered.
 #### The tag data is then downloaded to a txt file with all of the data for the specified dates.
+
+### OSIsoft PI - Retrieve Analog Tag Data
+#### The archive server, tag name, start and end dates, and output folder are entered.
+#### The tag data is then downloaded to a txt file with all of the data for the specified dates.
