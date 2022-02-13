@@ -133,10 +133,6 @@ $SourceArchiveFiles = Get-ChildItem -Name $sourceFolder -Filter *.arc
 #gets the dest archive files in a variable
 $DestArchiveFiles = Get-ChildItem -Name $destFolder -Filter *.arc 
 
-#sets the $lastArguments record
-$lastArguments = ""
-
-
 
 #********************************************************
 #Setting the source variables
