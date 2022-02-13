@@ -4,7 +4,7 @@
 - [Weather Updates](https://github.com/electronicwarfare/PowershellProjects/blob/main/README.md#weatherupdates)
 - [OSIsoft PI - Retrieve Digital Tag Data](https://github.com/electronicwarfare/PowershellProjects/blob/main/README.md#osisoft-pi---retrieve-digital-tag-data)
 - [OSIsoft PI - Retrieve Analog Tag Data](https://github.com/electronicwarfare/PowershellProjects/blob/main/README.md#osisoft-pi---retrieve-analog-tag-data)
-- [OSIsoft PI - Merge Archives]()
+- [OSIsoft PI - Merge Archives](https://github.com/electronicwarfare/PowershellProjects/blob/main/README.md#osisoft-pi---merge-archives)
 
 ### WeatherUpdates
 #### This Powershell script retrieves forecasted weather data from the weather.gov based upon a lat long. 
