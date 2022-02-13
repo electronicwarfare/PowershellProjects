@@ -1,5 +1,13 @@
-﻿#converts bin file and source archive to the new archive destination
-#!!!Go down to the main program section to adjust variables and folders.!!!
+﻿#This script converts an OSIsoft PI bin file and source archive to the new archive.
+#this is used when merging archives manually. It is can take a long time.
+#6 months of data conversion can take 1-2 days.
+#This script is intended for multiple source files and will not work for only one source file, however:
+#if you need to merge a single source file, there are sections in the script to change. Read carefully.
+
+#!!!Go down through the program section to adjust variables and folders.!!!
+#!!! you will see three !!! to know to update variables and folders for your systems. 
+#
+
 #Written by Jim Sheldon on May 3, 2019
 #*******************************************************************
 #run process function
@@ -10,10 +18,10 @@ function testOutput($x, $y, $z){
 }
 
 #*******************************************************************
-#sets the PI Archive Tool Process
+#sets the PI Archive Tool Process and variables, output file location.
 function PITool($y1, $z1, $binFile, $sFolder, $dFolder, $srtTime, $endTime, $filterSTime, $filterEtime, $processOrTest){
     
-    #archive tool destination
+    # !!! piarchss.exe PI archive tool file location. This may be different on your system.
     $buildArchiveTool = "E:\pi\bin\piarchss.exe" 
 
     
@@ -21,7 +29,8 @@ function PITool($y1, $z1, $binFile, $sFolder, $dFolder, $srtTime, $endTime, $fil
     $y1 = ($sFolder + $y1)
     $z1 = ($dFolder + $z1)
 
-    $outFile = "E:\PI\Migrate\dest\out\" + $y1.substring(23,28) +   "_" + $z1.substring(19,28)   + ".txt"
+    # !!! This would be your output folder location
+    $outFile = "xxxOutputFolderLocationxxx" + $y1.substring(23,28) +   "_" + $z1.substring(19,28)   + ".txt"
 
     #Write-Host $outFile
 
@@ -48,10 +57,10 @@ function PITool($y1, $z1, $binFile, $sFolder, $dFolder, $srtTime, $endTime, $fil
 
 }
 #*******************************************************************
-#Retrieves the file start time
+#Retrieves the file start time using one of the built in PI tools pidiag.exe
 Function getStartTime($srcFile){
 
-#
+# !!! enter the location for pidiag.exe
 $strDiagAll = E:\PI\adm\pidiag.exe -ahd $srcFile 
 $strStartTime = $strDiagAll[7] 
 
@@ -60,16 +69,16 @@ $strStartTime = $strDiagAll[7]
 #Write-Host $strDiagAll
 
 #this statement returns 0 if the file is busy. Eliminates error messages.
-If($strStartTime -ne $null){return $strStartTime.Substring(19)}
+If($null -ne $strStartTime){return $strStartTime.Substring(19)}
 Else{return 0}
 
 }
 
 #*******************************************************************
-#Retrieves the file end time
+#Retrieves the file end time using one of the built in PI tools pidiag.exe
 Function getEndTime($srcFile){
 
-#
+# !!! enter the location for pidiag.exe
 $strDiagAll = E:\PI\adm\pidiag.exe -ahd $srcFile 
 $strEndTime = $strDiagAll[8] 
 
@@ -84,14 +93,11 @@ return $strEndTime.Substring(19)
 #*******************************************************************
 #Starts the main program. Modify file locations in this section.
 
-#Source archive folder location
-$sourceFolder = "E:\PI\Migrate\Source\5\"
+# !!! Source archive folder location
+$sourceFolder = "xxxSourceArchiveFolderLocationxxx"
 
-#Source bin file location.
-$sourceBinFile = "E:\PI\Migrate\HDQv1615_Tags3.bin"
-
-#processed file location
-#$sourceFolder_Processed = "E:\PI\Migrate\Migrate_CGS\Test\processed.txt"
+# !!! Source bin file location.
+$sourceBinFile = "xxxSourceBinFolderLocationxxx"
 
 #Checks if the user wants to test the script or process.
 $processOrTest = Read-Host -Prompt "Do you want to process or test?`nTo process press 9`nTo test press any key"
@@ -110,17 +116,13 @@ If($processOrTest -eq 9){
     Else{Write-Host "`n***Beginning to Process***"} 
 }
 
-#Destination archive folder location
+# !!! Destination archive folder location
 $destFolder = "E:\PI\Migrate\dest\"
 
-#This txt files lists the archive files that did not process at all.
-#$fileProcessNotes = "E:\PI\Migrate\dest\out\2016_Process_Notes.txt"
-
-#archive tool destination
+# !!! piarchss.exe archive tool location
 $buildArchiveTool = "E:\pi\bin\piarchss.exe" 
 
-#usually the new PI server name
-#$newFilePrefix = "HDQv1773_"
+
 
 #*********************************************************************
 
@@ -145,7 +147,7 @@ $lastArguments = ""
 #source record variable
 $i = 0
 
-#sets the number of input files to process. If only one set this manuall to 1, just move the comment.$s
+#sets the number of input files to process. If only one set this manually to 1, just move the comment
 $srcCount = $SourceArchiveFiles.Length
 #$srcCount = 1
 
@@ -318,9 +320,7 @@ DO{
         
 }While($i -lt $srcCount)
 
-#ensures the last file is written to the text file as it was not processed
-#Add-Content $fileProcessNotes ("last_file -->  " + $SourceArchiveFiles[$i-1])
-#Add-Content $fileProcessNotes ("last_arguments -->  " + $lastArguments)
+
 
 
 
