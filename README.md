@@ -1,8 +1,8 @@
 # Powershell Projects
 #### Powershell Scripts that I've found useful as an Electrical Engineer and SysAdmin
 
-- Weather Updates
-- OSIsoft PI - Retrieve Digital Tag Data
+- [Weather Updates](https://github.com/electronicwarfare/PowershellProjects/blob/main/README.md#weatherupdates)
+- [OSIsoft PI - Retrieve Digital Tag Data](https://github.com/electronicwarfare/PowershellProjects/blob/main/README.md#osisoft-pi---retrieve-digital-tag-data)
 
 
 ### WeatherUpdates
