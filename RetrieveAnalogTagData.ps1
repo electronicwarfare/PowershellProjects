@@ -5,7 +5,7 @@
 #The PI archive servername, tagname, start and end times, and outfile must be updated for your system.
 
 #*****************************************************
-#Set up tag and dates.
+#Set up tag and dates,  and outfile location.
 
 $archiveServer = "xxxArchiveNamexxx"
 
