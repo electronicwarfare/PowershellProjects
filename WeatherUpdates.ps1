@@ -1,4 +1,4 @@
-#Pull weather forecast data for the next 7 days from weather.gov as an XML 
+#Pull weather forecast data for the next seven days from weather.gov as an XML 
 #location is based upon the lat longs in the site url.
 #borrowed base code from website below
 #https://pisquare.osisoft.com/thread/35301-how-do-i-use-pi-connector-for-ufl-to-parse-forecast-future-data?_ga=2.168086115.354682782.1571075528-655294286.1570479063
